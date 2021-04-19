@@ -23,10 +23,10 @@ public class AgencesVoyagesServices {
      * @param Voyage 
      * @return
      */
-   // public boolean reserver(void Voyage) {
+   /* public boolean reserver(void Voyage) {
         // TODO implement here voir réservation
-        //return false;
-    }
+        return false;
+    }*/
 
   
 
