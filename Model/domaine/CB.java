@@ -1,21 +1,24 @@
 package domaine;
 
-import java.time.LocalDate;
+
 
 public class CB extends MoyenPaiement {
 	private int numeroCB;
-	private LocalDate dateExpiration;
-	public Boolean validite;
+	private String dateExpiration;
+	public Boolean valide;
 
     /**
      * Default constructor
      */
-    public CB(String banque, double solde, int numeroCB, LocalDate dateExpiration) {
+    public CB(String banque, double solde, int numeroCB, String dateExpiration) {
 		super(banque, solde);
 		this.numeroCB = numeroCB;
 		this.dateExpiration = dateExpiration;
 	}
-
+    public CB() {}
+    public CB(String banque, double solde) {
+    	super(banque, solde);
+    }
 	/**
      * Getter/Setter
      */
@@ -27,17 +30,18 @@ public class CB extends MoyenPaiement {
 		this.numeroCB = numeroCB;
 	}
 
-	public LocalDate getDateExpiration() {
+	public String getDateExpiration() {
 		return dateExpiration;
 	}
 
-	public void setDateExpiration(LocalDate dateExpiration) {
+	public void setDateExpiration(String dateExpiration) {
 		this.dateExpiration = dateExpiration;
 	}
-public boolean validite(LocalDate dateExpiration, LocalDate dateJour) {
-	
-		return dateJour.compareTo(dateExpiration)>0 ;
-		
+public void validite(String dateExpiration, String dateJour) {
+	if (dateJour.compareTo(dateExpiration)<0) {
+		this.valide=true ;	}
+	else {
+		this.valide=false;
 	}
-    
+}   
 }

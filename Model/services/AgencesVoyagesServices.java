@@ -9,12 +9,13 @@ public class AgencesVoyagesServices {
 	private String nom;
 	
     /**
-     * Default constructor
+     * Constructor
      */
     public AgencesVoyagesServices(String nom, ArrayList<Voyage> offres) {
     	this.nom=nom;
     	this.offres = offres;
 	}
+    public AgencesVoyagesServices() {}
 	/**
      * Getter/Setter
      */

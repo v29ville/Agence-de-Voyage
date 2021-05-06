@@ -15,14 +15,25 @@ public class Voyage extends Destination {
 	/**
      * Default constructor
      */
-    public Voyage() {
-    }
+	public Voyage(int numeroVoyage, Boolean statut, double prix, Formule myFormule, Destination destination,
+			ArrayList<Reservation> listeReservation) {
+		super();
+		this.numeroVoyage = numeroVoyage;
+		Statut = statut;
+		this.prix = prix;
+		this.myFormule = myFormule;
+		this.destination = destination;
+		this.listeReservation = listeReservation;
+	}
     /**
      * Getter/Setter
      */
     public int getNumeroVoyage() {
 		return numeroVoyage;
 	}
+
+
+
 
 
 	public void setNumeroVoyage(int numeroVoyage) {

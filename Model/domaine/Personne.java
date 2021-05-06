@@ -10,14 +10,14 @@ public abstract class Personne {
      * Default constructor
      */
     public Personne(String civilite, String nom, String prenom, String email, Adresse myAdresse) {
-		super();
 		this.civilite = civilite;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
 		this.myAdresse = myAdresse;
 	}
-
+    public Personne()
+    {}
 	/**
      * Getter/Setter
      */

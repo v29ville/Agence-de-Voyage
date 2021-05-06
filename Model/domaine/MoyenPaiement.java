@@ -4,9 +4,10 @@ public abstract class MoyenPaiement {
 public String banque;
 private double solde;
     /**
-     * Default constructor
+     * Constructor
      */
-    
+public MoyenPaiement() {
+}
     public MoyenPaiement(String banque, double solde) {
 		this.banque = banque;
 		this.solde = solde;

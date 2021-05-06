@@ -1,28 +1,52 @@
 package services;
 
+import java.util.Scanner;
+
+import domaine.CB;
+import domaine.Client;
 
 public class GieCbService {
-
-    /**
-     * Default constructor
+	private boolean cbAcceptee;
+	private Client client;
+	/**
+	 * Constructor
+	 */
+	public GieCbService() {
+	}
+	
+	/**
+     * Verification
      */
-    public GieCbService() {
-    }
-
-    /**
-     * @param CB 
-     * @return
-     */
-    public boolean verifier(void CB) {
-        // TODO implement here
-        return false;
-    }
-
+	Scanner sc = new Scanner (System.in);
+	System.out.println("Entrez votre mode de paiement: 1 pour CB, 2 pour autre");
+	int mode= sc.nextInt();
+	
+	if (mode!=1) {
+		System.out.println("Vous pouvez nous envoyer un chéque");
+	}
+	else {
+		CB cb =new CB(sc.next(), sc.nextDouble(), sc.nextInt(), sc.next());
+		sc.close();
+		public boolean verifier( CB cb) {
+				if (cb.valide == true) {
+				//tester solde
+				if (cb.getSolde()>=client.getMyReservation().getPrix());
+				{
+					return this.cbAcceptee=true ;
+				}
+				//payer
+				}
+				else {
+				return this.cbAcceptee=false ;
+				}
+	
+	}
+		
     /**
      * @param CB
      */
-    public void effectuePaiement(void CB) {
-        // TODO implement here
-    }
+    //public effectuePaiement() {
+       
+    
 
 }

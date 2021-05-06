@@ -16,7 +16,6 @@ public class Voyageur extends Personne {
 	}
 
 	public Voyageur(String pieceIdentite, int age, Reservation myReservation) {
-		super();
 		this.pieceIdentite = pieceIdentite;
 		this.age = age;
 		this.myReservation = myReservation;

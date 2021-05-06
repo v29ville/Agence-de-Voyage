@@ -6,7 +6,7 @@ import services.AgencesVoyagesServices;
 
 public class Reservation {
 	private int numReservation;
-	private etatReservation etatReservation;
+	private etatReservation etat;
 	private ArrayList<Voyageur> listeVoyageur;
 	private Client  myClient;
 	private Assurance  myAssurance;
@@ -14,13 +14,14 @@ public class Reservation {
 	private double prixTotal;
 	
     /**
-     * Default constructor
+     * Constructors
      */
+	public Reservation() {}
+	
     public Reservation(int numReservation, domaine.etatReservation etatReservation, ArrayList<Voyageur> listeVoyageur,
 			Client myClient, Assurance myAssurance, Voyage myVoyage) {
-		super();
 		this.numReservation = numReservation;
-		this.etatReservation = etatReservation;
+		this.etat = etatReservation;
 		this.listeVoyageur = listeVoyageur;
 		this.myClient = myClient;
 		this.myAssurance = myAssurance;
@@ -38,10 +39,10 @@ public class Reservation {
 		this.numReservation = numReservation;
 	}
 	public etatReservation getEtatReservation() {
-		return etatReservation;
+		return etat;
 	}
 	public void setEtatReservation(etatReservation etatReservation) {
-		this.etatReservation = etatReservation;
+		this.etat = etatReservation;
 	}
 	public ArrayList<Voyageur> getListeVoyageur() {
 		return listeVoyageur;
@@ -82,25 +83,23 @@ public class Reservation {
     	listeVoyageur.add(voyageur);}
     
     /**
-     * @param Voyageur
+     * @param Supprimer Voyageur
      */
-    public void remove(void Voyageur) {
-        // TODO implement here
-    }
+    public void removeVoyageur(Voyageur voyageur) {
+    	
+    	listeVoyageur.remove(voyageur);    }
 
-    /**
-     * @param EtatReservation
-     */
-    public void setEtat(void EtatReservation) {
-        // TODO implement here
-    }
+    
 
     /**
      * @param Prix
      */
-    public void getPrix(void Prix) {
-        // TODO implement here
-    }
+    public double getPrix() {
+    	prixTotal=0;
+    	prixTotal+= (myVoyage.getPrix()*listeVoyageur.size());
+    	prixTotal+= (myAssurance.getPrix()*listeVoyageur.size());
+return prixTotal;
+}
     
     
     //M2THODE DEVRAIT ÊTRE à PARTIR DE CLIENT changer this en reservation
@@ -119,7 +118,7 @@ public void reserver (Client c) {
 }
 	
 	if (authentifie==true) {
-		this.etatReservation=domaine.etatReservation.EnCours;
+		this.etat=domaine.etatReservation.EnCours;
 		//Catalogue
 		AgencesVoyagesServices agence= new AgencesVoyagesServices();
 		for (Voyage v: agence.getOffres()) {
@@ -160,26 +159,26 @@ public void reserver (Client c) {
 			}
 			//add 2 et others
 		
-		//Prix Total
-		prixTotal=this.myAssurance.getPrix()*nbrVoyageurs;
+		//Paiement
 		System.out.println("Entrez votre mode de paiement: 1 pour CB, 2 pour autre");
 		int mode= sc.nextInt();
 		if (mode==1) {
-			CB cb =new CB(sc.nextInt(), sc.next());
-		}
-		if (cb.getDateExpiration().compareTo(new LocalDate(System.currentTimeMillis())>0)) {
+			CB cb =new CB(sc.next(), sc.nextDouble(), sc.nextInt(), sc.next());
+		
+		if (cb.valide == true) {
 			//tester solde
-			this.etatReservation=domaine.etatReservation.Acceptee;
+			if (cb.getSolde()>=this.getPrix())
+			this.etat=domaine.etatReservation.Acceptee;
 			//payer
 		}
 		else {
-			this.etatReservation=domaine.etatReservation.Refusee;
+			this.etat=domaine.etatReservation.Refusee;
 		}
 		
+		}
 	
-	
-	
+	sc.close();
 
 }
-}
+	}
 }
