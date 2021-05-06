@@ -1,4 +1,4 @@
-package com.lip6.daos;
+package daos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

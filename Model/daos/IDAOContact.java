@@ -1,13 +1,13 @@
-package com.lip6.daos;
+package daos;
 
 import java.util.ArrayList;
 
-import com.lip6.entities.Contact;
+import domaine.Voyageur;
 
 public interface IDAOContact {
 
 	
-	public Contact addContact(long idContact, String firstname, String lastname, String email);
+	public Voyageur addVoyageur(long idContact, String firstname, String lastname, String email);
 	
 	public int deleteContact(long id);
 	
