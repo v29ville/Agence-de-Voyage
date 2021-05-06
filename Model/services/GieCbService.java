@@ -6,47 +6,66 @@ import domaine.CB;
 import domaine.Client;
 
 public class GieCbService {
+	private boolean cbValide;
 	private boolean cbAcceptee;
 	private Client client;
+	private String datedujour;
+	private CB cb;
+	private int modePaiement;
 	/**
 	 * Constructor
 	 */
 	public GieCbService() {
 	}
-	
+
 	/**
-     * Verification
-     */
-	Scanner sc = new Scanner (System.in);
-	System.out.println("Entrez votre mode de paiement: 1 pour CB, 2 pour autre");
-	int mode= sc.nextInt();
-	
-	if (mode!=1) {
-		System.out.println("Vous pouvez nous envoyer un chéque");
-	}
-	else {
-		CB cb =new CB(sc.next(), sc.nextDouble(), sc.nextInt(), sc.next());
+	 * how to pay
+	 */
+	public void choixMoyenPaiement() {
+		System.out.println("Entrez votre mode de paiement: 1 pour CB, 2 pour autre");
+		Scanner sc = new Scanner (System.in);	
+		modePaiement= sc.nextInt();
 		sc.close();
-		public boolean verifier( CB cb) {
-				if (cb.valide == true) {
-				//tester solde
-				if (cb.getSolde()>=client.getMyReservation().getPrix());
-				{
-					return this.cbAcceptee=true ;
-				}
-				//payer
-				}
-				else {
-				return this.cbAcceptee=false ;
-				}
-	
+
+		if (modePaiement!=1) {
+			System.out.println("Vous pouvez nous envoyer un chéque");
+		}
+		else {
+			System.out.println("Entrez information de la carte de crédit");
+		}
 	}
-		
-    /**
-     * @param CB
-     */
-    //public effectuePaiement() {
-       
-    
+	/**
+	 * test cb validity
+	 */	
+	public boolean cbValide() {
+
+		if (datedujour.compareTo(cb.getDateExpiration())<0) {
+			return this.cbValide=true ;	}
+		else {
+			System.out.println("Votre carte bancaire n'est pas valide.");
+			return this.cbValide=false;
+			}
+	}
+
+public boolean soldeSuffisant() {
+
+if (cb.valide == true) {
+	if (cb.getSolde()>=client.getMyReservation().getPrix());
+	{
+		return this.cbAcceptee=true ;
+	}
+}
+else {
+	return this.cbAcceptee=false ;
+}
 
 }
+}
+
+/**
+ * @param CB
+ */
+//public effectuePaiement() {
+
+
+

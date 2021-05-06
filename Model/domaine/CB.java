@@ -15,7 +15,7 @@ public class CB extends MoyenPaiement {
 		this.numeroCB = numeroCB;
 		this.dateExpiration = dateExpiration;
 	}
-    public CB() {}
+    public CB() {};
     public CB(String banque, double solde) {
     	super(banque, solde);
     }
@@ -37,11 +37,11 @@ public class CB extends MoyenPaiement {
 	public void setDateExpiration(String dateExpiration) {
 		this.dateExpiration = dateExpiration;
 	}
-public void validite(String dateExpiration, String dateJour) {
+/*public void validite(String dateExpiration, String dateJour) {
 	if (dateJour.compareTo(dateExpiration)<0) {
 		this.valide=true ;	}
 	else {
 		this.valide=false;
 	}
-}   
+}   */
 }
