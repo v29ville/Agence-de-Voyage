@@ -60,13 +60,5 @@ private String passWord = "12345";
 		this.passWord = passWord;
 	}
 
-	public boolean authentification(String userName, String password) {
-		
-		return userName==this.user && password==this.passWord;
-		
 	}
     
-
-
-
-}

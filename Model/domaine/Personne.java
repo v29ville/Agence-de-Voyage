@@ -51,6 +51,7 @@ public abstract class Personne {
 	public void setMyAdresse(Adresse myAdresse) {
 		this.myAdresse = myAdresse;
 	}
+	
 
  
 
