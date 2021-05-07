@@ -7,6 +7,8 @@ public abstract class Prestation {
 	private LocalDate dateArrivee;
 	private double prixHT;
 	private String compagnie;
+	private boolean avionInclus;
+	private boolean VoitureIncluse;
     /**
      * Default constructor
      */

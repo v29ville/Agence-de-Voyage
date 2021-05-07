@@ -2,10 +2,15 @@ package com.model.domaine;
 
 import java.util.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import com.model.services.AgencesVoyagesServices;
 import com.model.services.AuthentificationManager;
 import com.model.services.GieCbService;
 
+@Entity
+@Table(name="Reservation")
 public class Reservation {
 	private int numReservation;
 	private etatReservation etat;

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Agence-de-Voyage">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Model"/>
+        <property name="context-root" value="Agence-de-Voyage"/>
+        <property name="java-output-path" value="/Agence-de-Voyage/Model"/>
+    </wb-module>
+</project-modules>
