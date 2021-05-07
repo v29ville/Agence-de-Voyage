@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Main PAge</title>
+<title>Options</title>
 </head>
 <body>
-<a href="CreateContact.jsp"> Add a new Contact</a> <br>
+<a href="CreerVoyageur.jsp"> Ajouter un Voyageur</a> <br>
 <a href="FindContact.jsp"> Find Contact</a>
 </body>
 </html>

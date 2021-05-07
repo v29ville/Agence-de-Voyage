@@ -5,15 +5,14 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence  
 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<!-- Unité de persistance -->
-	<persistence-unit name="projetJPA"
+	<persistence-unit name="projetBOVoyage"
 		transaction-type="RESOURCE_LOCAL">
 		<!-- Provider -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<!-- Entités -->
-		<class>com.lip6.entities.Contact</class>
-		<!--<class>com.lip6.entities.PhoneNumber</class>-->
-		<!--<class>com.lip6.entities.Address</class>-->
+		<class>com.model.entities.Voyageur</class>
+		
 
 		<properties>
 			<!-- Login -->
@@ -28,7 +27,7 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
 			<!-- URL de la base de données -->
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/JPA" /> <!--nom base de donnee avant jeecds = JPA-->
+				value="jdbc:mysql://localhost:3306/BOVoyage" /> 
 
 			<!-- configuration de la création du schema de la BD -->
 			<property
