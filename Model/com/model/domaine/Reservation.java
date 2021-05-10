@@ -3,6 +3,9 @@ package com.model.domaine;
 import java.util.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.model.services.AgencesVoyagesServices;
@@ -12,6 +15,10 @@ import com.model.services.GieCbService;
 @Entity
 @Table(name="Reservation")
 public class Reservation {
+	
+	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
 	private int numReservation;
 	private etatReservation etat;
 	private ArrayList<Voyageur> listeVoyageur;
@@ -116,7 +123,7 @@ public class Reservation {
     public double getPrix() {
     	prixTotal=0;
     	prixTotal+= (myVoyage.getPrix()*listeVoyageur.size());
-    	prixTotal+= (myAssurance.getPrix()*listeVoyageur.size());
+    	prixTotal+= (myAssurance.getPrixAssurance()*listeVoyageur.size());
 return prixTotal;
 }
     

@@ -3,7 +3,7 @@ package com.model.domaine;
 public class Chambre extends Hotel {
 	private String typeChambre;
 	private double prixChambre;
-	private Pension prestationHerbergement ;
+	private PrestationHebergement prestationHerbergement ;
     /**
      * Default constructor
      */
@@ -24,10 +24,10 @@ public class Chambre extends Hotel {
 	public void setPrixChambre(double prixChambre) {
 		this.prixChambre = prixChambre;
 	}
-	public Pension getPrestationHerbergement() {
+	public PrestationHebergement getPrestationHerbergement() {
 		return prestationHerbergement;
 	}
-	public void setPrestationHerbergement(Pension prestationHerbergement) {
+	public void setPrestationHerbergement(PrestationHebergement prestationHerbergement) {
 		this.prestationHerbergement = prestationHerbergement;
 	}
 

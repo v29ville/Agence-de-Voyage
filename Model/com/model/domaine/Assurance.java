@@ -3,41 +3,71 @@ package com.model.domaine;
 import java.util.Scanner;
 
 public class Assurance {
-	private double prix;
-	private Contrat contrat;
+	private String typeAssurance;
+	private double prixAssurance;
+	private String contratAssurance;
+	private boolean assuranceSouscrite;
 	private Reservation myReservation;
     /**
-     * Default constructor
+     *  constructor
      */
-	public Assurance(double prix, Contrat contrat, Reservation myReservation) {
+    public Assurance(boolean assuranceSouscrite) {
 		super();
-		this.prix = prix;
-		this.contrat = contrat;
-		this.myReservation = myReservation;
+		this.assuranceSouscrite = assuranceSouscrite;
 	}
-    /**
+
+	public Assurance(String typeAssurance, double prixAssurance, String contratAssurance) {
+		super();
+		this.typeAssurance = typeAssurance;
+		this.prixAssurance = prixAssurance;
+		this.contratAssurance = contratAssurance;
+	}
+
+	/**
      * Getter/Setter
      */
-	public double getPrix() {
-		return prix;
+
+	 public String getTypeAssurance() {
+		return typeAssurance;
 	}
-	
-	public void setPrix(double prix) {
-		this.prix = prix;
+
+	public void setTypeAssurance(String typeAssurance) {
+		this.typeAssurance = typeAssurance;
 	}
-	public Contrat getContrat() {
-		return contrat;
+
+	public double getPrixAssurance() {
+		return prixAssurance;
 	}
-	public void setContrat(Contrat contrat) {
-		this.contrat = contrat;
+
+	public void setPrixAssurance(double prixAssurance) {
+		this.prixAssurance = prixAssurance;
 	}
+
+	public String getContratAssurance() {
+		return contratAssurance;
+	}
+
+	public void setContratAssurance(String contratAssurance) {
+		this.contratAssurance = contratAssurance;
+	}
+
+	public boolean isAssuranceSouscrite() {
+		return assuranceSouscrite;
+	}
+
+	public void setAssuranceSouscrite(boolean assuranceSouscrite) {
+		this.assuranceSouscrite = assuranceSouscrite;
+	}
+
 	public Reservation getMyReservation() {
 		return myReservation;
 	}
+
 	public void setMyReservation(Reservation myReservation) {
 		this.myReservation = myReservation;
 	}
-	 /**
+
+	/**
      * Add insurance
      */
 	public void addInsurance () {Scanner sc= new Scanner(System.in);
@@ -48,14 +78,14 @@ public class Assurance {
 	}
 	if (assurrance.equals("non")) {
 		System.out.println("Vous voyagerez sans assurance.");
-		this.prix=0;
+		this.assuranceSouscrite=false;
+		this.prixAssurance=0;
 	}
 	else if (assurrance.equals("oui")) {
 		System.out.println("Entrez type d'assurance: 1 pour annulation, 2 pour autre");
 		int typeAssurance = sc.nextInt();
 		if (typeAssurance ==1) {
-			Contrat contrat= new Contrat();
-			AssuranceAnnulation myAssurance= new AssuranceAnnulation(this.getPrix(), contrat, myReservation);
+			this.assuranceSouscrite=true;
 			}
 		else{
 			System.out.println("Ce service n'est pas proposé");
