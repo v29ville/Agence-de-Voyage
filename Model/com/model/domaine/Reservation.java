@@ -20,6 +20,7 @@ public class Reservation {
 	private long id;
 	
 	private int numReservation;
+	
 	private etatReservation etat;
 	private ArrayList<Voyageur> listeVoyageur;
 	private Client  myClient;

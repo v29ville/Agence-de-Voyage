@@ -1,19 +1,18 @@
 package com.model.domaine;
 
 public class Client extends Personne {
-private Facture myFacture;
-private MoyenPaiement moyenPaiement;
-private Reservation  myReservation;
+
 private String user = "Client1";
 private String passWord = "12345";
+private CB cb;
+private Reservation  myReservation;
     /**
      * Default constructor
      */
-	public Client(String civilite, String nom, String prenom, String email, Adresse myAdresse, Facture myFacture,
-			MoyenPaiement moyenPaiement, Reservation myReservation) {
+	public Client(String civilite, String nom, String prenom, String email, Adresse myAdresse,
+			CB cb, Reservation myReservation) {
 		super(civilite, nom, prenom, email, myAdresse);
-		this.myFacture = myFacture;
-		this.moyenPaiement = moyenPaiement;
+		this.cb = cb;
 		this.myReservation = myReservation;
 	}
 
@@ -22,20 +21,13 @@ private String passWord = "12345";
 	/**
      * Getter/Setter
      */
-	public Facture getMyFacture() {
-		return myFacture;
+
+	public CB getMoyenPaiement() {
+		return cb;
 	}
 
-	public void setMyFacture(Facture myFacture) {
-		this.myFacture = myFacture;
-	}
-
-	public MoyenPaiement getMoyenPaiement() {
-		return moyenPaiement;
-	}
-
-	public void setMoyenPaiement(MoyenPaiement moyenPaiement) {
-		this.moyenPaiement = moyenPaiement;
+	public void setMoyenPaiement(CB cb) {
+		this.cb = cb;
 	}
 
 	public Reservation getMyReservation() {
