@@ -2,27 +2,28 @@ package com.model.domaine;
 
 import java.util.*;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.model.services.AgencesVoyagesServices;
 import com.model.services.AuthentificationManager;
 import com.model.services.GieCbService;
+import com.model.domaine.Voyageur;
 
 @Entity
 @Table(name="Reservation")
 public class Reservation {
 	
-	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
+	@Id
 	private int numReservation;
 	
 	private etatReservation etat;
-	private ArrayList<Voyageur> listeVoyageur;
 	private Client  myClient;
 	private Assurance  myAssurance;
 	private Voyage  myVoyage;
@@ -30,6 +31,10 @@ public class Reservation {
 	private GieCbService banque;
 	private AuthentificationManager authentificationManager;
 	
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable (name="ReservationVoyageur",
+			joinColumns=@JoinColumn(name="myReservation"))
+	private ArrayList<Voyageur> listeVoyageur = new ArrayList <Voyageur>(0);
     /**
      * Constructors
      */
@@ -106,7 +111,7 @@ public class Reservation {
   		int i=0;
   		while (i<nbrVoyageurs) {
     	Voyageur voyageur = new Voyageur( civilite,  nom,  prenom,  email,  myAdresse,  pieceIdentite,
-    			 age,  myReservation);
+    			 age);
     	listeVoyageur.add(voyageur);}
   		sc.close();
     }

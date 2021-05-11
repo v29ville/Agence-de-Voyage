@@ -1,24 +1,46 @@
 package com.model.domaine;
 
+import java.util.ArrayList;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+
+@Entity
 public class Voyageur extends Personne {
+	
+	@Id
+	@GeneratedValue
+	private long voyageurId;
 	private String pieceIdentite;
 	private int age;
-	private Reservation myReservation;
+	
+	
+	@ManyToMany (mappedBy="Voyageurs")
+	private ArrayList<Reservation> Reservations = new ArrayList <Reservation>(0);
+	
     /**
      * Default constructor
      */
     public Voyageur(String civilite, String nom, String prenom, String email, Adresse myAdresse, String pieceIdentite,
-			int age, Reservation myReservation) {
+			int age) {
 		super(civilite, nom, prenom, email, myAdresse);
 		this.pieceIdentite = pieceIdentite;
 		this.age = age;
-		this.myReservation = myReservation;
 	}
 
-	public Voyageur(String pieceIdentite, int age, Reservation myReservation) {
+	public Voyageur(String pieceIdentite, int age) {
 		this.pieceIdentite = pieceIdentite;
 		this.age = age;
-		this.myReservation = myReservation;
+	}
+	public Voyageur(String civilite, String nom, String prenom, String email, Adresse myAdresse, String pieceIdentite,
+			int age, ArrayList<Reservation> reservations) {
+		super(civilite, nom, prenom, email, myAdresse);
+		this.pieceIdentite = pieceIdentite;
+		this.age = age;
+		Reservations = reservations;
 	}
 
 	/**
@@ -36,12 +58,29 @@ public class Voyageur extends Personne {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public Reservation getMyReservation() {
-		return myReservation;
+
+	public long getVoyageurId() {
+		return voyageurId;
 	}
-	public void setMyReservation(Reservation myReservation) {
-		this.myReservation = myReservation;
+
+	public void setVoyageurId(long voyageurId) {
+		this.voyageurId = voyageurId;
 	}
+
+	public ArrayList<Reservation> getReservations() {
+		return Reservations;
+	}
+
+	public void setReservations(ArrayList<Reservation> reservations) {
+		Reservations = reservations;
+	}
+
+	@Override
+	public String toString() {
+		return "Voyageur [voyageurId=" + voyageurId + ", pieceIdentite=" + pieceIdentite + ", age=" + age
+				+ ", Reservations=" + Reservations + "]";
+	}
+
 
     
 
