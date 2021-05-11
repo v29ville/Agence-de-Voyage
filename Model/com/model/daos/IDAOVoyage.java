@@ -6,7 +6,7 @@ import com.model.domaine.Adresse;
 import com.model.domaine.Reservation;
 import com.model.domaine.Voyageur;
 
-public interface IDAOVoyageur {
+public interface IDAOVoyage {
 
 	
 	public Voyageur addVoyageur(String civilite, String nom, String prenom, String email, Adresse myAdresse, String pieceIdentite,

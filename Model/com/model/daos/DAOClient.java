@@ -6,7 +6,7 @@ import com.model.domaine.Adresse;
 import com.model.domaine.Reservation;
 import com.model.domaine.Voyageur;
 
-public class DAOVoyageur implements IDAOVoyageur{
+public class DAOClient implements IDAOReservation{
 
 	@Override
 	public Voyageur addVoyageur(String civilite, String nom, String prenom, String email, Adresse myAdresse,

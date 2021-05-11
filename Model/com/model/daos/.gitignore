@@ -2,3 +2,9 @@
 /IDAOContact.class
 /DAOVoyageur.class
 /IDAOVoyageur.class
+/DAOReservation.class
+/IDAOReservation.class
+/DAOClient.class
+/IDAOClient.class
+/IDAOVoyage.class
+/DAOVoyage.class

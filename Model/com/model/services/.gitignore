@@ -2,3 +2,15 @@
 /AuthentificationManager.class
 /GieCbService.class
 /MailService.class
+/IServiveClient.class
+/IServiveVoyage.class
+/IServiveReservation.class
+/ServiveClient.class
+/ServiveReservation.class
+/ServiveVoyage.class
+/IServiceVoyage.class
+/ServiceClient.class
+/ServiceReservation.class
+/ServiceVoyage.class
+/IServiceClient.class
+/IServiceReservation.class
