@@ -1,5 +1,6 @@
 package com.model.domaine;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ public class CB {
 	private String dateExpiration;
 	public Boolean valide;
 	
-	@OneToOne(mappedBy="cb")
+	@OneToOne(cascade=CascadeType.ALL, mappedBy="cb")
 	private Client client;
     /**
      * Default constructor

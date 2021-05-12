@@ -3,6 +3,7 @@ package com.model.domaine;
 
 import java.util.*;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
@@ -18,7 +19,7 @@ public String nomHotel;
 public int nbEtoiles;
 private ArrayList<Chambre> listeChambres;
 
-@OneToOne
+@OneToOne (cascade=CascadeType.ALL)
 @JoinColumn(name="ADR_ID")
 public Adresse adresseHotel;
     /**

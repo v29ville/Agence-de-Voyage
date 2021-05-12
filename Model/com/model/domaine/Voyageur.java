@@ -2,6 +2,7 @@ package com.model.domaine;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Voyageur extends Personne {
 	private int age;
 	
 	
-	@ManyToMany (mappedBy="Voyageurs")
+	@ManyToMany (cascade=CascadeType.ALL,mappedBy="Voyageurs")
 	private ArrayList<Reservation> Reservations = new ArrayList <Reservation>(0);
 	
     /**

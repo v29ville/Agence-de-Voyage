@@ -2,6 +2,7 @@ package com.model.domaine;
 
 import java.util.Scanner;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,7 @@ public class Assurance {
 	private String contratAssurance;
 	private boolean assuranceSouscrite;
 	
-	@OneToOne(mappedBy="myAssurance")
+	@OneToOne(cascade=CascadeType.ALL, mappedBy="myAssurance")
 	private Reservation myReservation;
     /**
      *  constructor

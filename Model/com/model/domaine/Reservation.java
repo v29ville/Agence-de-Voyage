@@ -31,7 +31,7 @@ public class Reservation {
 	private GieCbService banque;
 	private AuthentificationManager authentificationManager;
 	
-	@ManyToOne
+	@ManyToOne (cascade=CascadeType.ALL)
 	private Client  myClient;
 	
 	@ManyToMany(cascade=CascadeType.ALL)
@@ -46,7 +46,7 @@ public class Reservation {
 			inverseJoinColumns=@JoinColumn(name="NUMRESERVATION", referencedColumnName="numReservation"))
 	private ArrayList<Voyageur> listeVoyageur = new ArrayList <Voyageur>(0);
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="RESA_ASSU", referencedColumnName="assuranceID")
 	private Assurance  myAssurance;
 	

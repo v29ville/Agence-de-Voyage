@@ -2,6 +2,7 @@ package com.model.domaine;
 
 import java.util.*;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,10 +24,10 @@ public class Voyage {
 	private String pays;
 	private String continent;
 	
-	@OneToMany(mappedBy="voyage")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="voyage")
 	public ArrayList<Prestation> listePrestations;
 	
-	@ManyToMany(mappedBy="voyages")
+	@ManyToMany(cascade=CascadeType.ALL, mappedBy="voyages")
 	private ArrayList<Reservation> listeReservation;   
 	
 	/**

@@ -2,6 +2,7 @@ package com.model.domaine;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +27,7 @@ public abstract class Prestation {
 	private boolean avionInclus;
 	private boolean VoitureIncluse;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Voyage myVoyage;
     /**
      * Default constructor

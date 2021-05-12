@@ -1,5 +1,6 @@
 package com.model.domaine;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public abstract class Personne {
 	 private String prenom;
 	 private String email;
 	 
-	 @OneToOne
+	 @OneToOne(cascade=CascadeType.ALL)
 	 @JoinColumn(name="ADR_ID")
 		private Adresse  myAdresse;
 	
