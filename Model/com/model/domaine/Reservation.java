@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -29,6 +30,8 @@ public class Reservation {
 	private double prixTotal;
 	private GieCbService banque;
 	private AuthentificationManager authentificationManager;
+	
+	@ManyToOne
 	private Client  myClient;
 	
 	@ManyToMany(cascade=CascadeType.ALL)

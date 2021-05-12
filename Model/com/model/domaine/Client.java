@@ -28,10 +28,7 @@ private String passWord = "12345";
 @JoinColumn(name="CB_CLIENT", referencedColumnName="cbID")
 private CB cb;
 
-@OneToMany
-@JoinTable (name="ReservationClient",
-joinColumns=@JoinColumn(name="clientID"),
-inverseJoinColumns=@JoinColumn(name="NUMRESERVATION"))
+@OneToMany(mappedBy="client")
 private ArrayList<Reservation>  myReservation;
     /**
      * Default constructor
