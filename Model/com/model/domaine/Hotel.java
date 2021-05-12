@@ -3,6 +3,14 @@ package com.model.domaine;
 
 import java.util.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="hotel")
+@Inheritance
+//@DiscriminatorColumn
 public class Hotel extends Prestation {
 public String nomHotel;
 public int nbEtoiles;

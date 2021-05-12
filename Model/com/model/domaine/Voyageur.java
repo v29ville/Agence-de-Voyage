@@ -2,13 +2,17 @@ package com.model.domaine;
 
 import java.util.ArrayList;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name="voyageur")
+@DiscriminatorValue("VOYAGEUR")
 public class Voyageur extends Personne {
 	
 	@Id

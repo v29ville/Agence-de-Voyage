@@ -1,6 +1,22 @@
 package com.model.domaine;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="personne")
+@Inheritance
+@DiscriminatorColumn(name="PERS_TYPE")
 public abstract class Personne {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long personneId;
 	 private String civilite;
 	 private String nom;
 	 private String prenom;
@@ -50,6 +66,12 @@ public abstract class Personne {
 	}
 	public void setMyAdresse(Adresse myAdresse) {
 		this.myAdresse = myAdresse;
+	}
+	public long getPersonneId() {
+		return personneId;
+	}
+	public void setPersonneId(long personneId) {
+		this.personneId = personneId;
 	}
 	
 

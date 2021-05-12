@@ -1,5 +1,10 @@
 package com.model.domaine;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Table;
+
+@Table(name="client")
+@DiscriminatorValue("CLIENT")
 public class Client extends Personne {
 
 private String user = "Client1";

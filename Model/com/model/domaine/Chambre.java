@@ -1,5 +1,10 @@
 package com.model.domaine;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Table;
+
+@Table(name="chambre")
+//@DiscriminatorValue
 public class Chambre extends Hotel {
 	private String typeChambre;
 	private double prixChambre;
