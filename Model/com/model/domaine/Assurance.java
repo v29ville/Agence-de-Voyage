@@ -2,11 +2,24 @@ package com.model.domaine;
 
 import java.util.Scanner;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Assurance {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long assuranceID;
+	
 	private String typeAssurance;
 	private double prixAssurance;
 	private String contratAssurance;
 	private boolean assuranceSouscrite;
+	
+	@OneToOne(mappedBy="myAssurance")
 	private Reservation myReservation;
     /**
      *  constructor

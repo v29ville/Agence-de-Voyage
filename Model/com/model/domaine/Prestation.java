@@ -2,12 +2,12 @@ package com.model.domaine;
 
 import java.time.LocalDate;
 
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,12 +25,29 @@ public abstract class Prestation {
 	private String compagnie;
 	private boolean avionInclus;
 	private boolean VoitureIncluse;
+	
+	@ManyToOne
+	private Voyage myVoyage;
     /**
      * Default constructor
      */
     public Prestation() {
     }
-    /**
+    
+    public Prestation(long refPrestation, LocalDate dateDepart, LocalDate dateArrivee, double prixHT, String compagnie,
+			boolean avionInclus, boolean voitureIncluse, Voyage myVoyage) {
+		super();
+		this.refPrestation = refPrestation;
+		this.dateDepart = dateDepart;
+		this.dateArrivee = dateArrivee;
+		this.prixHT = prixHT;
+		this.compagnie = compagnie;
+		this.avionInclus = avionInclus;
+		VoitureIncluse = voitureIncluse;
+		this.myVoyage = myVoyage;
+	}
+
+	/**
      * Getter/Setter
      */
 	public LocalDate getDateDepart() {

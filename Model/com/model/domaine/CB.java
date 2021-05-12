@@ -1,14 +1,25 @@
 package com.model.domaine;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
-
+@Entity
 public class CB {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long cbId;
+	
 	public String banque;
 	private double solde;
 	private int numeroCB;
 	private String dateExpiration;
 	public Boolean valide;
-
+	
+	@OneToOne(mappedBy="cb")
+	private Client client;
     /**
      * Default constructor
      */
@@ -67,6 +78,22 @@ public class CB {
 
 	public void setValide(Boolean valide) {
 		this.valide = valide;
+	}
+
+	public long getCbId() {
+		return cbId;
+	}
+
+	public void setCbId(long cbId) {
+		this.cbId = cbId;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 	
 /*public void validite(String dateExpiration, String dateJour) {

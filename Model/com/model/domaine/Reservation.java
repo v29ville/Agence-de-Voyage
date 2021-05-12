@@ -10,9 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.model.services.AgencesVoyagesServices;
 import com.model.services.AuthentificationManager;
 import com.model.services.GieCbService;
 import com.model.domaine.Voyageur;
@@ -22,35 +22,59 @@ import com.model.domaine.Voyageur;
 public class Reservation {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int numReservation;
 	
 	private etatReservation etat;
-	private Client  myClient;
-	private Assurance  myAssurance;
-	private Voyage  myVoyage;
 	private double prixTotal;
 	private GieCbService banque;
 	private AuthentificationManager authentificationManager;
+	private Client  myClient;
+	
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable (name="RESAVoyages",
+	joinColumns=@JoinColumn(name="numeroVoyage"),
+	inverseJoinColumns=@JoinColumn(name="NUMRESERVATION"))
+	private ArrayList<Voyage>  myVoyages= new ArrayList<Voyage>(0);
 	
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable (name="ReservationVoyageur",
-			joinColumns=@JoinColumn(name="myReservation"))
+			joinColumns=@JoinColumn(name="myReservation"),
+			inverseJoinColumns=@JoinColumn(name="NUMRESERVATION", referencedColumnName="numReservation"))
 	private ArrayList<Voyageur> listeVoyageur = new ArrayList <Voyageur>(0);
+	
+	@OneToOne
+	@JoinColumn(name="RESA_ASSU", referencedColumnName="assuranceID")
+	private Assurance  myAssurance;
+	
     /**
      * Constructors
      */
 	public Reservation() {}
+
 	
-    public Reservation(int numReservation, com.model.domaine.etatReservation etatReservation, ArrayList<Voyageur> listeVoyageur,
-			Client myClient, Assurance myAssurance, Voyage myVoyage) {
+	public Reservation(int numReservation, etatReservation etat, double prixTotal) {
+		super();
 		this.numReservation = numReservation;
-		this.etat = etatReservation;
-		this.listeVoyageur = listeVoyageur;
-		this.myClient = myClient;
-		this.myAssurance = myAssurance;
-		this.myVoyage = myVoyage;
-		this.listeVoyageur= new ArrayList<Voyageur>();
+		this.etat = etat;
+		this.prixTotal = prixTotal;
 	}
+
+	public Reservation(int numReservation, etatReservation etat, double prixTotal, GieCbService banque,
+			AuthentificationManager authentificationManager, Client myClient, ArrayList<Voyage> myVoyages,
+			ArrayList<Voyageur> listeVoyageur, Assurance myAssurance) {
+		super();
+		this.numReservation = numReservation;
+		this.etat = etat;
+		this.prixTotal = prixTotal;
+		this.banque = banque;
+		this.authentificationManager = authentificationManager;
+		this.myClient = myClient;
+		this.myVoyages = myVoyages;
+		this.listeVoyageur = listeVoyageur;
+		this.myAssurance = myAssurance;
+	}
+
 
 	/**
      * Getter/Setter
@@ -79,15 +103,19 @@ public class Reservation {
 	public void setMyAssurance(Assurance myAssurance) {
 		this.myAssurance = myAssurance;
 	}
-	public Voyage getMyVoyage() {
-		return myVoyage;
-	}
-	public void setMyVoyage(Voyage myVoyage) {
-		this.myVoyage = myVoyage;
-	}
+	
 	public etatReservation getEtatReservation() {
 		return etat;
 	}
+	public double getPrixTotal() {
+		return prixTotal;
+	}
+	//to edit
+	//public void setPrixTotal(double prixTotal) {
+	//	this.prixTotal = prixTotal;
+	//}
+
+
 	/**
      * setter reservation state
      */
@@ -101,6 +129,27 @@ public class Reservation {
 			this.etat=com.model.domaine.etatReservation.Refusee;
 		}
 	}
+	
+	public etatReservation getEtat() {
+		return etat;
+	}
+
+
+	public void setEtat(etatReservation etat) {
+		this.etat = etat;
+	}
+
+
+	public ArrayList<Voyage> getMyVoyages() {
+		return myVoyages;
+	}
+
+
+	public void setMyVoyages(ArrayList<Voyage> myVoyages) {
+		this.myVoyages = myVoyages;
+	}
+
+
 	/**
      * @param Ajouter Voyageur
      */
@@ -123,10 +172,8 @@ public class Reservation {
     public void removeVoyageur(Voyageur voyageur) {
     	
     	listeVoyageur.remove(voyageur);    }
-
-    /**
-     * @param Prix
-     */
+/**
+   
     public double getPrix() {
     	prixTotal=0;
     	prixTotal+= (myVoyage.getPrix()*listeVoyageur.size());
@@ -151,6 +198,6 @@ public void reserver (Client c) {
 		sc.close();
 		
 	}
-
+*/
 
 }

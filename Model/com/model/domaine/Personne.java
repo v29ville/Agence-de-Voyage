@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,11 +19,16 @@ public abstract class Personne {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long personneId;
+	
 	 private String civilite;
 	 private String nom;
 	 private String prenom;
 	 private String email;
-	 private Adresse myAdresse;
+	 
+	 @OneToOne
+	 @JoinColumn(name="ADR_ID")
+		private Adresse  myAdresse;
+	
     /**
      * Default constructor
      */
