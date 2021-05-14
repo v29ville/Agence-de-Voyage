@@ -19,8 +19,6 @@ import javax.persistence.Table;
 @DiscriminatorValue("CLIENT")
 public class Client extends Personne {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int clientID;
 	
 private String user = "Client1";

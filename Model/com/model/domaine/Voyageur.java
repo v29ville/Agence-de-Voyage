@@ -16,8 +16,6 @@ import javax.persistence.Table;
 @DiscriminatorValue("VOYAGEUR")
 public class Voyageur extends Personne {
 	
-	@Id
-	@GeneratedValue
 	private long voyageurId;
 	
 	private String pieceIdentite;
