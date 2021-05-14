@@ -30,7 +30,7 @@ private String passWord = "12345";
 @JoinColumn(name="CB_CLIENT", referencedColumnName="cbID")
 private CB cb;
 
-@OneToMany(cascade=CascadeType.ALL,mappedBy="client")
+@OneToMany(cascade=CascadeType.ALL,mappedBy="myClient")
 private ArrayList<Reservation>  myReservation;
     /**
      * Default constructor

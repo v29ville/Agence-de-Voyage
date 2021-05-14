@@ -19,11 +19,12 @@ public class Voyageur extends Personne {
 	@Id
 	@GeneratedValue
 	private long voyageurId;
+	
 	private String pieceIdentite;
 	private int age;
 	
 	
-	@ManyToMany (cascade=CascadeType.ALL,mappedBy="Voyageurs")
+	@ManyToMany (cascade=CascadeType.ALL,mappedBy="listeVoyageur")
 	private ArrayList<Reservation> Reservations = new ArrayList <Reservation>(0);
 	
     /**
@@ -47,7 +48,8 @@ public class Voyageur extends Personne {
 		this.age = age;
 		Reservations = reservations;
 	}
-
+	public Voyageur() {
+	}
 	/**
      * Getter/Setter
      */

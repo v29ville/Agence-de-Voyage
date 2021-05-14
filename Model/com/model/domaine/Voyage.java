@@ -24,10 +24,10 @@ public class Voyage {
 	private String pays;
 	private String continent;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="voyage")
-	public ArrayList<Prestation> listePrestations;
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="myVoyage")
+	private ArrayList<Prestation> listePrestations;
 	
-	@ManyToMany(cascade=CascadeType.ALL, mappedBy="voyages")
+	@ManyToMany(cascade=CascadeType.ALL, mappedBy="myVoyages")
 	private ArrayList<Reservation> listeReservation;   
 	
 	/**
@@ -43,7 +43,9 @@ public class Voyage {
 		this.listePrestations = listePrestations;
 		this.listeReservation = listeReservation;
 	}
-
+	public Voyage() {
+		
+	}
 	
     /**
      * Getter/Setter

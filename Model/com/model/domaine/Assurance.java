@@ -37,6 +37,9 @@ public class Assurance {
 		this.contratAssurance = contratAssurance;
 	}
 
+	   public Assurance() {
+			
+		}
 	/**
      * Getter/Setter
      */

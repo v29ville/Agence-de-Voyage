@@ -13,11 +13,11 @@ public class CB {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long cbId;
 	
-	public String banque;
+	private String banque;
 	private double solde;
 	private int numeroCB;
 	private String dateExpiration;
-	public Boolean valide;
+	private Boolean valide;
 	
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="cb")
 	private Client client;

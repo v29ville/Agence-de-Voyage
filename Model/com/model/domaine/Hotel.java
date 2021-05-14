@@ -15,13 +15,13 @@ import javax.persistence.Table;
 @Inheritance
 //@DiscriminatorColumn
 public class Hotel extends Prestation {
-public String nomHotel;
-public int nbEtoiles;
+	private String nomHotel;
+private int nbEtoiles;
 private ArrayList<Chambre> listeChambres;
 
 @OneToOne (cascade=CascadeType.ALL)
 @JoinColumn(name="ADR_ID")
-public Adresse adresseHotel;
+private Adresse adresseHotel;
     /**
      * Default constructor
      */
@@ -35,6 +35,24 @@ public Adresse adresseHotel;
 	}
 	public void setListeChambres(ArrayList<Chambre> listeChambres) {
 		this.listeChambres = listeChambres;
+	}
+	public String getNomHotel() {
+		return nomHotel;
+	}
+	public void setNomHotel(String nomHotel) {
+		this.nomHotel = nomHotel;
+	}
+	public int getNbEtoiles() {
+		return nbEtoiles;
+	}
+	public void setNbEtoiles(int nbEtoiles) {
+		this.nbEtoiles = nbEtoiles;
+	}
+	public Adresse getAdresseHotel() {
+		return adresseHotel;
+	}
+	public void setAdresseHotel(Adresse adresseHotel) {
+		this.adresseHotel = adresseHotel;
 	}
 	
 
