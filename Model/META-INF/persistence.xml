@@ -11,7 +11,7 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<!-- Entités -->
-		<class>com.model.entities.Voyageur</class>
+		<class>com.model.domaine.Voyageur</class>
 		
 
 		<properties>

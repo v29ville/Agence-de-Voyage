@@ -49,7 +49,7 @@ public class GieCbService {
 
 public boolean soldeSuffisant() {
 
-if (cb.valide == true) {
+if (cb.getValide() == true) {
 	//edit with arraylist loop
 	//if (cb.getSolde()>=client.getMyReservation().getPrixTotal());
 	{

@@ -26,7 +26,7 @@ public abstract class Personne {
 	 private String prenom;
 	 private String email;
 	 
-	 @OneToOne(cascade=CascadeType.ALL)
+	 @OneToOne(cascade=CascadeType.PERSIST)
 	 @JoinColumn(name="ADR_ID")
 		private Adresse  myAdresse;
 	
