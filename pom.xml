@@ -4,6 +4,8 @@
   <artifactId>Agence-de-Voyage</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  
+  
   <build>
     <sourceDirectory>Model</sourceDirectory>
     <resources>

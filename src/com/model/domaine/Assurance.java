@@ -87,6 +87,7 @@ public class Assurance {
 	/**
      * Add insurance
      */
+	/**
 	public void addInsurance () {Scanner sc= new Scanner(System.in);
 	System.out.println("Souhaitez-vous une assurance? oui/non");
 	String assurrance= sc.next();
@@ -109,5 +110,5 @@ public class Assurance {
 		}
 		}
 		sc.close();	
-	}
+	} **/
 }

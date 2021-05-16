@@ -11,8 +11,9 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<!-- Entités -->
+		<class>com.model.domaine.Personne</class>
 		<class>com.model.domaine.Voyageur</class>
-		
+		<class>com.model.domaine.Adresse</class>
 
 		<properties>
 			<!-- Login -->
@@ -27,7 +28,7 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
 			<!-- URL de la base de données -->
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/BOVoyage" /> 
+				value="jdbc:mysql://localhost:3306/bovoyage" /> 
 
 			<!-- configuration de la création du schema de la BD -->
 			<property

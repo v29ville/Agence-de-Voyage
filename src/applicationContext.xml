@@ -21,4 +21,21 @@
 <bean id="vdao" class="com.model.daos.DAOVoyageur"/>
 
 
+<bean id="voyageur1" class="com.model.domaine.Voyageur">
+	<property name="civilite" value="Monsieur"/>
+	<property  name="nom" value="Wayne"/>
+	<property  name="prenom" value="Bruce"/>
+	<property  name="email" value="bwayne@wayne.gc"/>
+	<property name="myAdresse"> <ref bean="adresse1"/></property>
+	<property  name="pieceIdentite" value="987653"/>
+	<property  name="age" value="38"/>
+</bean>
+
+<bean id="adresse1" class="com.model.domaine.Adresse">
+	<property name="rue" value="Wayne Manor"/>
+	<property name="ville" value="Gotham"/>
+	<property name="codePostal" value="10543"/>
+	<property name="pays" value="USA"/>
+</bean>
+
 </beans>

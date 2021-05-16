@@ -86,7 +86,9 @@ public class Voyageur extends Personne {
 				+ ", Reservations=" + Reservations + "]";
 	}
 
-
+	public void testInit() {
+		System.out.println("Bienvenue aux voyageurs!");
+	}
     
 
 

@@ -30,7 +30,7 @@ public abstract class Personne {
 	 private String email;
 	 
 	 @Autowired
-		@Qualifier("address")
+		@Qualifier("adresse1")
 	 @OneToOne(cascade=CascadeType.PERSIST)
 	 @JoinColumn(name="ADR_ID")
 		private Adresse  myAdresse;

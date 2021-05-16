@@ -3,7 +3,7 @@
   <display-name>Agence BOVoyage</display-name>
   <absolute-ordering/>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>Authentification.html</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>

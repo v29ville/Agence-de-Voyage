@@ -1,21 +1,23 @@
 package com.model.servlets;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.services.AuthentificationManager;
-
-
-public class AddVoyageurServlet extends HttpServlet {
+/**
+ * Servlet implementation class LoginServlet
+ */
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddVoyageurServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,20 +35,17 @@ public class AddVoyageurServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String name=request.getParameter("name");
+		String password=request.getParameter("password");
 		
-		String civilite = request.getParameter("civilite");
-		String fname = request.getParameter("fname");
-		String lname = request.getParameter("lname");
-		String email = request.getParameter("email");
-		int age = Integer.parseInt(request.getParameter("age"));
-		String pieceIdentite = request.getParameter("pieceIdentite");
-		String rue = request.getParameter("rue");
-		String ville = request.getParameter("ville");
-		String cp = request.getParameter("cp");
-		String pays = request.getParameter("pays");
-		AuthentificationManager sc = new AuthentificationManager();
-		sc.authentification(null);
-		//sc.addContact(id, fname, lname, email);
-		
+		if(name.equals(password)) {
+			RequestDispatcher rd=request.getRequestDispatcher("main.jsp");
+			rd.forward(request,response);
+		}
+		else {
+			response.sendRedirect("Authentification.html");
+		}
+		}
 	}
-}
+
+

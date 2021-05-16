@@ -35,10 +35,8 @@ public abstract class Prestation {
     public Prestation() {
     }
     
-    public Prestation(long refPrestation, LocalDate dateDepart, LocalDate dateArrivee, double prixHT, String compagnie,
+    public Prestation( LocalDate dateDepart, LocalDate dateArrivee, double prixHT, String compagnie,
 			boolean avionInclus, boolean voitureIncluse, Voyage myVoyage) {
-		super();
-		this.refPrestation = refPrestation;
 		this.dateDepart = dateDepart;
 		this.dateArrivee = dateArrivee;
 		this.prixHT = prixHT;
