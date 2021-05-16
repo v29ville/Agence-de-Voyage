@@ -13,13 +13,13 @@ public class Adresse {
 	
 	private String rue;
 	private String ville;
-	private int codePostal;
+	private String codePostal;
 	private String pays;
 	//deleted region
     /**
      * Default constructor
      */
-	public Adresse(String rue, String ville, int codePostal, String pays) {
+	public Adresse(String rue, String ville, String codePostal, String pays) {
 		this.rue = rue;
 		this.ville = ville;
 		this.codePostal = codePostal;
@@ -44,10 +44,10 @@ public class Adresse {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-	public int getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 	public String getPays() {

@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 @Entity
 @Table(name="personne")
 @Inheritance
@@ -26,6 +29,8 @@ public abstract class Personne {
 	 private String prenom;
 	 private String email;
 	 
+	 @Autowired
+		@Qualifier("address")
 	 @OneToOne(cascade=CascadeType.PERSIST)
 	 @JoinColumn(name="ADR_ID")
 		private Adresse  myAdresse;
