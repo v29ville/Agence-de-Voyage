@@ -1,6 +1,7 @@
 package com.model.domaine;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
@@ -15,7 +16,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="client")
+//@Table
 @DiscriminatorValue("CLIENT")
 public class Client extends Personne {
 	
@@ -28,8 +29,8 @@ private String passWord = "12345";
 @JoinColumn(name="CB_CLIENT", referencedColumnName="cbID")
 private CB cb;
 
-@OneToMany(cascade=CascadeType.ALL,mappedBy="myClient")
-private ArrayList<Reservation>  myReservation;
+@OneToMany(mappedBy="myClient")
+private List<Reservation>  myReservation;
     /**
      * Default constructor
      */
@@ -86,7 +87,7 @@ public Client(String civilite, String nom, String prenom, String email, Adresse 
 	public void setCb(CB cb) {
 		this.cb = cb;
 	}
-	public ArrayList<Reservation> getMyReservation() {
+	public List<Reservation> getMyReservation() {
 		return myReservation;
 	}
 	public void setMyReservation(ArrayList<Reservation> myReservation) {

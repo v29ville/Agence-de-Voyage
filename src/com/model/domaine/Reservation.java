@@ -28,8 +28,8 @@ public class Reservation {
 	
 	private etatReservation etat;
 	private double prixTotal;
-	private GieCbService banque;
-	private AuthentificationManager authentificationManager;
+	//private GieCbService banque;
+	//private AuthentificationManager authentificationManager;
 	
 	@ManyToOne (cascade=CascadeType.ALL)
 	private Client  myClient;
@@ -38,13 +38,10 @@ public class Reservation {
 	@JoinTable (name="RESAVoyages",
 	joinColumns=@JoinColumn(name="numeroVoyage"),
 	inverseJoinColumns=@JoinColumn(name="NUMRESERVATION"))
-	private ArrayList<Voyage>  myVoyages= new ArrayList<Voyage>(0);
+	private List<Voyage>  myVoyages= new ArrayList<Voyage>(0);
 	
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable (name="ReservationVoyageur",
-			joinColumns=@JoinColumn(name="myReservation"),
-			inverseJoinColumns=@JoinColumn(name="NUMRESERVATION", referencedColumnName="numReservation"))
-	private ArrayList<Voyageur> listeVoyageur = new ArrayList <Voyageur>(0);
+	@ManyToMany(cascade=CascadeType.ALL,mappedBy="Reservations")
+	private List<Voyageur> listeVoyageur = new ArrayList <Voyageur>(0);
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="RESA_ASSU", referencedColumnName="assuranceID")
@@ -63,15 +60,12 @@ public class Reservation {
 		this.prixTotal = prixTotal;
 	}
 
-	public Reservation(int numReservation, etatReservation etat, double prixTotal, GieCbService banque,
-			AuthentificationManager authentificationManager, Client myClient, ArrayList<Voyage> myVoyages,
+	public Reservation(int numReservation, etatReservation etat, double prixTotal, Client myClient, ArrayList<Voyage> myVoyages,
 			ArrayList<Voyageur> listeVoyageur, Assurance myAssurance) {
 		super();
 		this.numReservation = numReservation;
 		this.etat = etat;
 		this.prixTotal = prixTotal;
-		this.banque = banque;
-		this.authentificationManager = authentificationManager;
 		this.myClient = myClient;
 		this.myVoyages = myVoyages;
 		this.listeVoyageur = listeVoyageur;
@@ -88,7 +82,7 @@ public class Reservation {
 	public void setNumReservation(int numReservation) {
 		this.numReservation = numReservation;
 	}
-	public ArrayList<Voyageur> getListeVoyageur() {
+	public List<Voyageur> getListeVoyageur() {
 		return listeVoyageur;
 	}
 	public void setListeVoyageur(ArrayList<Voyageur> listeVoyageur) {
@@ -122,6 +116,7 @@ public class Reservation {
 	/**
      * setter reservation state
      */
+	/**
 	public void setEtatReservation(etatReservation etatReservation) {
 		if (authentificationManager.getAuthentifie()==true) {
 			this.etat=com.model.domaine.etatReservation.EnCours;}
@@ -132,7 +127,7 @@ public class Reservation {
 			this.etat=com.model.domaine.etatReservation.Refusee;
 		}
 	}
-	
+	**/
 	public etatReservation getEtat() {
 		return etat;
 	}
@@ -143,7 +138,7 @@ public class Reservation {
 	}
 
 
-	public ArrayList<Voyage> getMyVoyages() {
+	public List<Voyage> getMyVoyages() {
 		return myVoyages;
 	}
 

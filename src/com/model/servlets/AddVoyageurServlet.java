@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import com.model.domaine.Adresse;
 import com.model.domaine.Voyageur;
 import com.model.services.AuthentificationManager;
 import com.model.services.ServiceVoyageur;
@@ -51,13 +52,13 @@ public class AddVoyageurServlet extends HttpServlet {
 				Voyageur v=(Voyageur)context.getBean("voyageur1");
 				ServiceVoyageur sv =(ServiceVoyageur)context.getBean("serviceVoyageur");
 				sv.addVoyageur(v);
+		//		
 				
-				
 		
 		
 		
 		
-		/**
+		
 		String civilite = request.getParameter("civilite");
 		String fname = request.getParameter("fname");
 		String lname = request.getParameter("lname");
@@ -68,9 +69,17 @@ public class AddVoyageurServlet extends HttpServlet {
 		String ville = request.getParameter("ville");
 		String cp = request.getParameter("cp");
 		String pays = request.getParameter("pays");
-		AuthentificationManager sc = new AuthentificationManager();
-		sc.authentification(null); **/
+		//AuthentificationManager sc = new AuthentificationManager();
+		//sc.authentification(null);
+		
+		
+		Adresse ia = new Adresse (rue, ville, cp, pays);
+		
+		Voyageur in = new Voyageur(civilite, fname, lname, email, ia, pieceIdentite, age);
+		sv.addVoyageur(in);
+		
+		//System.out.println(in.getPrenom()+ in.getNom()+ in.getEmail());
 		//sc.addContact(id, fname, lname, email);
-		System.out.println(v);
+		System.out.println(in);
 	}
 }

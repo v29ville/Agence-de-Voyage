@@ -1,9 +1,12 @@
 package com.model.domaine;
 
 import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
 import javax.persistence.Table;
 
-@Table(name="chambre")
+@Entity
+@Inheritance
 //@DiscriminatorValue
 public class Chambre extends Hotel {
 	private String typeChambre;

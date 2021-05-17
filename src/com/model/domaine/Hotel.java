@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="hotel")
+//@Table(name="hotel")
 @Inheritance
 //@DiscriminatorColumn
 public class Hotel extends Prestation {

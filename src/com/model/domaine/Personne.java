@@ -8,13 +8,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-@Entity
+//@Entity
+@MappedSuperclass
 @Table(name="personne")
 @Inheritance
 @DiscriminatorColumn(name="PERS_TYPE")

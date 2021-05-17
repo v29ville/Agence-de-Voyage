@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Adresse {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue//(strategy = GenerationType.IDENTITY)
 	private long adresseId;
 	
 	private String rue;
@@ -57,13 +57,13 @@ public class Adresse {
 		this.pays = pays;
 	}
 
-	public long getAdresseId() {
+	/**public long getAdresseId() {
 		return adresseId;
 	}
 
 	public void setAdresseId(long adresseId) {
 		this.adresseId = adresseId;
-	}
+	}**/
 
 	@Override
 	public String toString() {

@@ -1,29 +1,38 @@
 package com.model.domaine;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name="voyageur")
+//@Table single inherited from personne
 @DiscriminatorValue("VOYAGEUR")
 public class Voyageur extends Personne {
 	
-	private long voyageurId;
+	
+	
+	//private long voyageurId;
 	
 	private String pieceIdentite;
 	private int age;
 	
 	
-	@ManyToMany (cascade=CascadeType.ALL,mappedBy="listeVoyageur")
-	private ArrayList<Reservation> Reservations = new ArrayList <Reservation>(0);
+	@ManyToMany (cascade=CascadeType.ALL)
+	@JoinTable (name="ReservationVoyageur",
+	joinColumns=@JoinColumn(name="voyageurId"),
+	inverseJoinColumns=@JoinColumn(name="NUMRESERVATION", referencedColumnName="numReservation"))
+	private List<Reservation> Reservations = new ArrayList <Reservation>(0);
 	
     /**
      * Default constructor
@@ -40,23 +49,25 @@ public class Voyageur extends Personne {
 		this.age = age;
 	}
 	public Voyageur(String civilite, String nom, String prenom, String email, Adresse myAdresse, String pieceIdentite,
-			int age, ArrayList<Reservation> reservations) {
+			int age, List<Reservation> reservations) {
 		super(civilite, nom, prenom, email, myAdresse);
 		this.pieceIdentite = pieceIdentite;
 		this.age = age;
-		Reservations = reservations;
+		this.Reservations = reservations;
 	}
 	public Voyageur() {
 	}
 	/**
      * Getter/Setter
      */
+	
 	public String getPieceIdentite() {
 		return pieceIdentite;
 	}
 	public void setPieceIdentite(String pieceIdentite) {
 		this.pieceIdentite = pieceIdentite;
 	}
+	
 	public int getAge() {
 		return age;
 	}
@@ -64,15 +75,9 @@ public class Voyageur extends Personne {
 		this.age = age;
 	}
 
-	public long getVoyageurId() {
-		return voyageurId;
-	}
+	
 
-	public void setVoyageurId(long voyageurId) {
-		this.voyageurId = voyageurId;
-	}
-
-	public ArrayList<Reservation> getReservations() {
+	public List<Reservation> getReservations() {
 		return Reservations;
 	}
 
@@ -82,7 +87,7 @@ public class Voyageur extends Personne {
 
 	@Override
 	public String toString() {
-		return "Voyageur [voyageurId=" + voyageurId + ", pieceIdentite=" + pieceIdentite + ", age=" + age
+		return "Voyageur [ pieceIdentite=" + pieceIdentite + ", age=" + age
 				+ ", Reservations=" + Reservations + "]";
 	}
 

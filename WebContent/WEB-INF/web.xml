@@ -5,6 +5,7 @@
   <welcome-file-list>
     <welcome-file>Authentification.html</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <description></description>
     <display-name>LoginServlet</display-name>
@@ -29,12 +30,14 @@
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+  
   <context-param>
     <param-name>contextClass</param-name>
     <param-value>
  org.springframework.web.context.support.AnnotationConfigWebApplicationContext
   </param-value>
   </context-param>
+  
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>com.model.configuration</param-value>

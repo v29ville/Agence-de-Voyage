@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence  
 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<!-- Unité de persistance -->
-	<persistence-unit name="projetBOVoyage"
+	<persistence-unit name="bovoyage"
 		transaction-type="RESOURCE_LOCAL">
 		<!-- Provider -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>

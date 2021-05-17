@@ -11,9 +11,9 @@
 			<tr>
 				<th><h2>Entrez les informations du voyageurs</h2></th>
 				<tr>
-					<td> <i>Civilité : 
+					<td> <i>Civilité :
 
-<select>
+<select name="civilite">
   <option value="mme">Madame</option>
   <option value="mr">Monsieur</option> </select></i>
 					
@@ -29,7 +29,7 @@
 					<td><i>Age : <input type="text" name="age" size="25"></i></td>
 				</tr>
 				<tr>
-					<td><i>Numéro de pièce d'identité : <input type="text" name="cniID" size="25"></i></td>
+					<td><i>Numéro de pièce d'identité : <input type="text" name="pieceIdentite" size="25"></i></td>
 				</tr>
 				<tr>
 					<td><i>Email : <input type="text" name="email" size="25"></i></td>

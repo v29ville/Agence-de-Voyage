@@ -25,10 +25,10 @@ public class Voyage {
 	private String continent;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="myVoyage")
-	private ArrayList<Prestation> listePrestations;
+	private List<Prestation> listePrestations;
 	
 	@ManyToMany(cascade=CascadeType.ALL, mappedBy="myVoyages")
-	private ArrayList<Reservation> listeReservation;   
+	private List<Reservation> listeReservation;   
 	
 	/**
      * Default constructor
@@ -73,7 +73,7 @@ public class Voyage {
 	}
 
 
-	public ArrayList<Reservation> getListeReservation() {
+	public List<Reservation> getListeReservation() {
 		return listeReservation;
 	}
 
@@ -113,7 +113,7 @@ public class Voyage {
 	}
 
 
-	public ArrayList<Prestation> getListePrestations() {
+	public List<Prestation> getListePrestations() {
 		return listePrestations;
 	}
 
