@@ -24,10 +24,15 @@ EntityTransaction tx =  em.getTransaction();
 tx.begin();
 
 // 3 : Instanciation Objet(s) m�tier (s)
-//Contact contact = new Contact(firstname,lastname, email);
 
+Voyageur ivy = new Voyageur("Madame", "Isley", "Pamela", "pi@PoisonIvy.gc", "PoisonIvy",
+		35);
+
+Adresse adresseIvy = new Adresse("Botanical Gardens", "Gotham City", "10543","USA");
+ivy.setMyAdresse(adresseIvy);
 
 // 4 : Persistance Objet/Relationnel : cr�ation d'un enregistrement en base
+em.persist(ivy);
 em.persist(v);
 
 // 5 : Fermeture transaction 

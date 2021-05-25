@@ -10,6 +10,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,8 @@ public abstract class Personne {
 	 @Autowired
 		@Qualifier("adresse1")
 	 @OneToOne(cascade=CascadeType.PERSIST)
-	 @JoinColumn(name="ADR_ID")
+	@JoinColumn(name="ADR_ID")
+	 //@PrimaryKeyJoinColumn
 		private Adresse  myAdresse;
 	
     /**
@@ -46,6 +48,14 @@ public abstract class Personne {
 		this.prenom = prenom;
 		this.email = email;
 		this.myAdresse = myAdresse;
+	}
+    
+    public Personne(String civilite, String nom, String prenom, String email) {
+		this.civilite = civilite;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		
 	}
     public Personne()
     {}

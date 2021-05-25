@@ -15,6 +15,10 @@ public class ServiceVoyageur implements IServiceVoyageur {
 		private IDAOVoyageur dao;
 		
 		public void addVoyageur(Voyageur v) {
-			dao.addVoyageur(v);
+		dao.addVoyageur(v);
 }
+/**
+		@Override
+		public void accept(Visitor visitor) {	
+		}**/
 }

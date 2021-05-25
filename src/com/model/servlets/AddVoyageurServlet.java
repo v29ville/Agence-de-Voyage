@@ -22,15 +22,12 @@ public class AddVoyageurServlet extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public AddVoyageurServlet() {
-        super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -38,7 +35,6 @@ public class AddVoyageurServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		//test Spring		
 		ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
@@ -49,9 +45,9 @@ public class AddVoyageurServlet extends HttpServlet {
 		        }
 				
 				
-				Voyageur v=(Voyageur)context.getBean("voyageur1");
+				//Voyageur v=(Voyageur)context.getBean("voyageur1");
 				ServiceVoyageur sv =(ServiceVoyageur)context.getBean("serviceVoyageur");
-				sv.addVoyageur(v);
+				//sv.addVoyageur(v);
 		//		
 				
 		

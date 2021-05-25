@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -34,12 +35,20 @@ public class Voyageur extends Personne {
 	inverseJoinColumns=@JoinColumn(name="NUMRESERVATION", referencedColumnName="numReservation"))
 	private List<Reservation> Reservations = new ArrayList <Reservation>(0);
 	
+	
     /**
      * Default constructor
      */
     public Voyageur(String civilite, String nom, String prenom, String email, Adresse myAdresse, String pieceIdentite,
 			int age) {
 		super(civilite, nom, prenom, email, myAdresse);
+		this.pieceIdentite = pieceIdentite;
+		this.age = age;
+	}
+    
+    public Voyageur(String civilite, String nom, String prenom, String email, String pieceIdentite,
+			int age) {
+		super(civilite, nom, prenom, email);
 		this.pieceIdentite = pieceIdentite;
 		this.age = age;
 	}
