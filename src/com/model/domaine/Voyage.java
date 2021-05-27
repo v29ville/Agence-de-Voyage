@@ -47,6 +47,11 @@ public class Voyage {
 		
 	}
 	
+	public Voyage(double prix, String pays, String continent) {
+		this.prix = prix;
+		this.pays = pays;
+		this.continent = continent;}
+		
     /**
      * Getter/Setter
      */

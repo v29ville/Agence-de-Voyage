@@ -2,27 +2,24 @@ package com.model.daos;
 
 import java.util.ArrayList;
 
-import com.model.domaine.Adresse;
-import com.model.domaine.Reservation;
-import com.model.domaine.Voyageur;
+
+import com.model.domaine.Voyage;
 
 public interface IDAOVoyage {
 
 	
-	public Voyageur addVoyageur(String civilite, String nom, String prenom, String email, Adresse myAdresse, String pieceIdentite,
-			int age, Reservation myReservation);
+	public boolean addVoyage(Voyage vo);
 	
-	public int deleteVoyageur(String pieceIdentite, Reservation myReservation);
+	//public int deleteVoyage();
 	
-	public Voyageur getVoyageur(String pieceIdentite, Reservation myReservation);
+	//public Voyage getVoyage();
 	
-	public boolean modifyVoyageur(String civilite, String nom, String prenom, String email, Adresse myAdresse, String pieceIdentite,
-			int age, Reservation myReservation);
+	//public boolean modifyVoyage();
 	
-	public ArrayList<Voyageur> getVoyageurByFirstName(String firstname);
+	//public ArrayList<Voyage> getVoyageByPrice(double prix);
 	
-	public ArrayList<Voyageur> getVoyageurByLastName(String lastname);
+	//public ArrayList<Voyage> getVoyageByPays(String pays);
 	
-	public ArrayList<Voyageur> getVoyageurByEmail(String email);
+	//public ArrayList<Voyage> getVoyageByContinent(String continent);
 	
 }

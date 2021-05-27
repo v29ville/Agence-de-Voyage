@@ -9,20 +9,7 @@ import com.model.domaine.Voyageur;
 public interface IDAOReservation {
 
 	
-	public Voyageur addVoyageur(String civilite, String nom, String prenom, String email, Adresse myAdresse, String pieceIdentite,
-			int age, Reservation myReservation);
+	public boolean addReservation(Reservation r);
 	
-	public int deleteVoyageur(String pieceIdentite, Reservation myReservation);
-	
-	public Voyageur getVoyageur(String pieceIdentite, Reservation myReservation);
-	
-	public boolean modifyVoyageur(String civilite, String nom, String prenom, String email, Adresse myAdresse, String pieceIdentite,
-			int age, Reservation myReservation);
-	
-	public ArrayList<Voyageur> getVoyageurByFirstName(String firstname);
-	
-	public ArrayList<Voyageur> getVoyageurByLastName(String lastname);
-	
-	public ArrayList<Voyageur> getVoyageurByEmail(String email);
 	
 }

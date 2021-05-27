@@ -13,7 +13,9 @@ import com.model.domaine.Adresse;
 import com.model.domaine.Reservation;
 
 @Repository("daoVoyageur")
-public class DAOVoyageur implements IDAOVoyageur{boolean success=false;
+public class DAOVoyageur implements IDAOVoyageur{
+	
+	boolean success=false;
 
 public boolean addVoyageur(Voyageur v) {
 try {

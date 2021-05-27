@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>Agence BOVoyage</display-name>
   <absolute-ordering/>
   <welcome-file-list>
@@ -26,6 +28,51 @@
     <servlet-name>AddVoyageurServlet</servlet-name>
     <url-pattern>/AddVoyageurServlet</url-pattern>
   </servlet-mapping>
+  
+  
+  <!-- trouble starts here -->
+  <servlet>
+  	<servlet-name>Jersey Web Application</servlet-name>
+  	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+  	<init-param>
+  		<param-name>jersey.config.server.provider.packages</param-name>
+  		<param-value>com.formation.service</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+  		<param-value>true</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Jersey Web Application</servlet-name>
+  	<url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
+  
+  <security-role>
+		<role-name>user</role-name>
+	</security-role>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>MySecurityRealm</realm-name>
+	</login-config>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>secured</web-resource-name>
+			<url-pattern>/rest/*</url-pattern>
+			<http-method>POST</http-method>
+			<http-method>GET</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>user</role-name>
+		</auth-constraint>
+	</security-constraint>
+  
+  <!-- end of trouble -->
+  
   
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
